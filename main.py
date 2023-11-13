@@ -134,7 +134,8 @@ class EAT():
                 try:
                     async with client.post(self.list_url, 
                                            headers=self.json_headers, 
-                                           json=self.json_body) as response:
+                                           json=self.json_body,
+                                           ssl=False) as response:
                         #if self.is_debug:
                         self.start_time = datetime.now()
 
@@ -196,7 +197,8 @@ class EAT():
 
             async with client.post(self.info_url, 
                                    headers=headers, 
-                                   data=info_body) as response:
+                                   data=info_body,
+                                   ssl=False) as response:
                 if self.is_debug:
                     self.log(f"\n[POST] {self.info_url}, status = {response.status}")
                     self.log(await response.text())
@@ -325,7 +327,8 @@ class EAT():
         async with ClientSession(trust_env = True) as client:
             async with client.post(self.add_proposal_url, 
                                    headers=headers, 
-                                   data=body) as response:
+                                   data=body,
+                                   ssl=False) as response:
                 result = await response.text()
                 if self.is_debug:
                     self.log(f"\n[POST] {self.info_url}, status = {response.status}")
