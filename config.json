@@ -1,0 +1,41 @@
+{
+    "Общие": {
+        "Выводить в консоль отладочную инфорацию?": "Нет"
+    },
+    "ЕАТ": {
+        "Токен": "bPc0K5tCxY9e3-ONG84I_ltr9OY7BqKuMnhFF9h0BRE",
+        "ИНН": "5003090280",
+        "Ключевая фраза": "Гереево",
+        "Исключаемые процедуры": [
+            "100920115123100165"
+        ],
+        "НДС": "Не облагается",
+        "Ставка": 0.01,
+        "Название файла": "предложение.pdf",
+        "Ссылка на файл": "https://tender-api.agregatoreat.ru/api/FileUpload/25d0d6cd-aa86-4084-9ea6-80274db1a69e"
+    },
+    "Параметры поставщика": {
+        "Номер системы": 300938953,
+        "Название компании": "ООО СТОКЭСТЭЙТ",
+        "ИНН": "7751206569",
+        "КПП": "775101001",
+        "ОГРН": "1217700462968",
+        "Адрес": "108801, Г. МОСКВА, ул УЛ. ПОТАПОВСКАЯ РОЩА, д. Д. 7, корп. К. 1, кв. ЭТАЖ/ПОМЕЩ./ОФИС ПОДВАЛЬНЫЙ/38/1А",
+        "Email": "stockastate@gmail.com",
+        "Номер телефона": "+7(925)664-09-72"
+    },
+    "Переменные": {
+        "Комментарий": "Без необходимости не менять",
+        "UID последнего запроса": 3144,
+        "Основная часть стартового Request UID": "93009398-6521-1111-1113-",
+        "Расчетная часть стартового Request UID": "111111111111",
+        "URL JSON API списка закупок": "https://tender-cache-api.agregatoreat.ru/api/TradeLot/list-published-trade-lots",
+        "URL XML API получения информации о закупке": "https://agregatoreat.ru/integration/ecom/rest/api/order/orderNotification",
+        "URL XML API подтверждения запроса": "https://agregatoreat.ru/integration/ecom/rest/api/processingResult",
+        "URL XML API создание предложения": "https://agregatoreat.ru/integration/ecom/rest/api/order/orderProposal",
+        "XML файл с запросом на получение информации о закупке": "Templates/get_info.xml",
+        "XML файл с запросом на получение результата": "Templates/get_result.xml",
+        "XML файл с запросом на добавление предложения": "Templates/add_proposal.xml",
+        "XML файл с предложением по позиции": "Templates/Parts/add_proposal_productRef.xml"
+    }
+}
