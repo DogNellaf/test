@@ -1,6 +1,6 @@
-from asyncio import new_event_loop, set_event_loop, sleep
+from asyncio import new_event_loop, set_event_loop, sleep, set_event_loop_policy, WindowsSelectorEventLoopPolicy
 
-from aiohttp.client import ClientSession
+from aiohttp.client import ClientSession, TCPConnector
 
 from random import randrange
 from datetime import datetime
@@ -355,7 +355,9 @@ class EAT():
 
 if __name__ == '__main__':
     loader = EAT()
+    mypolicy = WindowsSelectorEventLoopPolicy()
     loop = new_event_loop()
+    set_event_loop_policy(mypolicy)
     set_event_loop(loop)
 
     loop.run_until_complete(loader.start())
