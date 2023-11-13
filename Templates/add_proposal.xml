@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<n1:requestOrderProposal xmlns:eat="http://agregatoreat.ru/eat/" xmlns:n1="http://agregatoreat.ru/eat/object-types/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" eat:Version="2.0.0" eat:RequestUID="REQUEST_NUMBER_PARAM">
+	<referenceOrderInfo>
+		ORDER_INFO_PARAM
+	</referenceOrderInfo>
+	<OrderProposalInfo>
+		PRODUCTS_REF_PARAM
+		<eat:SupplierInfo>
+			<eat:name>SUPPLIER_NAME_PARAM</eat:name>
+			<eat:supplier>
+				<eat:INN>SUPPLIER_INN_PARAM</eat:INN>
+				<eat:KPP>SUPPLIER_KPP_PARAM</eat:KPP>
+				<eat:OGRN>SUPPLIER_OGRN_PARAM</eat:OGRN>
+			</eat:supplier>
+			<eat:address>SUPPLIER_ADDRESS</eat:address>
+			<eat:additionalInfo>Доп.инфо</eat:additionalInfo>
+			<eat:contactInfo>
+				<eat:email>SUPPLIER_EMAIL</eat:email>
+				<eat:phone>SUPPLIER_PHONE</eat:phone>
+			</eat:contactInfo>
+		</eat:SupplierInfo>
+		<eat:ProposalConfirmation>Да</eat:ProposalConfirmation>
+		<eat:DeliveryPrice>0</eat:DeliveryPrice>
+		<eat:selfDeliveryAddress>Москва</eat:selfDeliveryAddress>
+		<eat:documents>
+			<eat:name>FILE_NAME_PARAM</eat:name>
+			<eat:fileRef>
+				<eat:fileName>FILE_NAME_PARAM</eat:fileName>
+				<eat:contentRef>FILE_REF_PARAM</eat:contentRef>
+			</eat:fileRef>
+		</eat:documents>
+	</OrderProposalInfo>
+	<extSystem>SYSTEM_NUMBER_PARAM</extSystem>
+</n1:requestOrderProposal>

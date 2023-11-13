@@ -1,0 +1,41 @@
+{
+    "Общие": {
+        "Выводить в консоль отладочную инфорацию?": "Нет"
+    },
+    "ЕАТ": {
+        "Токен": "s7w1MQNm-Qil2okqVXB7cxjB-BRRgVKKMHAzX_Prjtg",
+        "ИНН": "5003090280",
+        "Ключевая фраза": "Бурбуково",
+        "Исключаемые процедуры": [
+		
+        ],
+        "НДС": "Не облагается",
+        "Ставка": 0.01,
+        "Название файла": "предложение.docx",
+        "Ссылка на файл": "https://tender-api.agregatoreat.ru/api/FileUpload/922e5cb6-9a19-48ea-b9c9-ece4b53292f5"
+    },
+    "Параметры поставщика": {
+        "Номер системы": 300939865,
+        "Название компании": "ООО АРИС",
+        "ИНН": "9701185250",
+        "КПП": "770101001",
+        "ОГРН": "1217700452694",
+        "Адрес": "101000, Г.МОСКВА, ул. ПЕР. АРМЯНСКИЙ, д. Д. 9, корп. СТР. 1, кв. ЭТАЖ, ОФИС 1, 106/20Б",
+        "Email": "stolitsa.agency@gmail.com",
+        "Номер телефона": "+7(925)969-72-28"
+    },
+    "Переменные": {
+        "Комментарий": "Без необходимости не менять",
+        "UID последнего запроса": 2904,
+        "Основная часть стартового Request UID": "93009398-6521-1111-1111-",
+        "Расчетная часть стартового Request UID": "111111111111",
+        "URL JSON API списка закупок": "https://tender-cache-api.agregatoreat.ru/api/TradeLot/list-published-trade-lots",
+        "URL XML API получения информации о закупке": "https://agregatoreat.ru/integration/ecom/rest/api/order/orderNotification",
+        "URL XML API подтверждения запроса": "https://agregatoreat.ru/integration/ecom/rest/api/processingResult",
+        "URL XML API создание предложения": "https://agregatoreat.ru/integration/ecom/rest/api/order/orderProposal",
+        "XML файл с запросом на получение информации о закупке": "Templates/get_info.xml",
+        "XML файл с запросом на получение результата": "Templates/get_result.xml",
+        "XML файл с запросом на добавление предложения": "Templates/add_proposal.xml",
+        "XML файл с предложением по позиции": "Templates/Parts/add_proposal_productRef.xml"
+    }
+}

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://agregatoreat.ru/eat/object-types/" xmlns:eat="http://agregatoreat.ru/eat/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://agregatoreat.ru/eat/object-types/">
+	<xs:import namespace="http://agregatoreat.ru/eat/" schemaLocation="eatObjectTypes.xsd"/>
+	<xs:element name="eatCategorySet" type="eat:categorySetType">
+		<xs:annotation>
+			<xs:documentation>Набор категорий классификатора ТРУ</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="eatCategoryCatalog" type="eat:catalogCategoryType">
+		<xs:annotation>
+			<xs:documentation>Набор позиций классификатора товаров, работ, услуг ЕАТ по одной категории </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<!--Элемент набора предложений ТРУ-->
+	<xs:element name="requestOfferSet">
+		<xs:annotation>
+			<xs:documentation>Передача набора предложений ТРУ поставщиков е-commmerce системы</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="eat:offerSetType">
+					<xs:sequence>
+						<xs:element name="extSystem" type="eat:tExtSystemNumber">
+							<xs:annotation>
+								<xs:documentation>Внешняя система</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Agent" type="eat:tSupplierRefType" minOccurs="0"/>
+					</xs:sequence>
+					<xs:attribute ref="eat:Version" use="required"/>
+					<xs:attribute ref="eat:RequestUID" use="required"/>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:unique name="uniqueOfferSetCode">
+			<xs:selector xpath="eat:offers"/>
+			<xs:field xpath="eat:offerCode"/>
+		</xs:unique>
+		<xs:key name="keyAreaCode">
+			<xs:selector xpath="eat:deliveryAreas"/>
+			<xs:field xpath="eat:areaCode"/>
+		</xs:key>
+		<xs:keyref name="keyrefAreaCode" refer="keyAreaCode">
+			<xs:selector xpath="eat:offers"/>
+			<xs:field xpath="eat:extras/eat:deliveryAreaCode"/>
+		</xs:keyref>
+	</xs:element>
+    <!--Элемент набора эталонных предложений ТРУ-->
+    <xs:element name="requestReferenceOfferSet">
+    <xs:annotation>
+      <xs:documentation>Передача набора этплонных предложений ТРУ поставщиков е-commmerce системы</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="eat:referenceOfferSetType">
+          <xs:sequence>
+            <xs:element name="extSystem" type="eat:tExtSystemNumber">
+              <xs:annotation>
+                <xs:documentation>Внешняя система</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="Agent" type="eat:tSupplierRefType" minOccurs="0"/>
+          </xs:sequence>
+          <xs:attribute ref="eat:Version" use="required"/>
+          <xs:attribute ref="eat:RequestUID" use="required"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+    <xs:unique name="uniqueReferenceOfferSetCode">
+      <xs:selector xpath="eat:offers"/>
+      <xs:field xpath="eat:offerCode"/>
+    </xs:unique>
+    <xs:key name="keyReferenceAreaCode">
+      <xs:selector xpath="eat:deliveryAreas"/>
+      <xs:field xpath="eat:areaCode"/>
+    </xs:key>
+    <xs:keyref name="keyrefReferenceAreaCode" refer="keyReferenceAreaCode">
+      <xs:selector xpath="eat:offers"/>
+      <xs:field xpath="eat:extras/eat:deliveryAreaCode"/>
+    </xs:keyref>
+  </xs:element>
+	<!--Элемент измнения дополнительных характеричтик ТРУ-->
+    <xs:element name="requestOfferChange">
+		<xs:annotation>
+			<xs:documentation>Изменение дополнительных характеристик ТРУ поставщиками</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="OfferChanges" type="eat:offerChangesType" maxOccurs="1000"/>
+				<xs:element name="sellerRef" type="eat:tSupplierRefType">
+					<xs:annotation>
+						<xs:documentation>Ссылка на данные продавца</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="extSystem" type="eat:tExtSystemNumber">
+					<xs:annotation>
+						<xs:documentation>Внешняя система</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Agent" type="eat:tSupplierRefType" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute ref="eat:Version" use="required"/>
+			<xs:attribute ref="eat:RequestUID" use="required"/>
+		</xs:complexType>
+		<xs:unique name="uniqueOfferChangeCode">
+			<xs:selector xpath="OfferChanges"/>
+			<xs:field xpath="eat:offerCode"/>
+		</xs:unique>
+	</xs:element>
+    <!--Элемент измнения дополнительных характериcтик эталонного ТРУ-->
+    <xs:element name="requestReferenceOfferChange">
+    <xs:annotation>
+      <xs:documentation>Изменение дополнительных характеристик эталонного ТРУ поставщиками</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="OfferChanges" type="eat:offerChangesType" maxOccurs="1000"/>
+        <xs:element name="sellerRef" type="eat:tSupplierRefType">
+          <xs:annotation>
+            <xs:documentation>Ссылка на данные продавца</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="extSystem" type="eat:tExtSystemNumber">
+          <xs:annotation>
+            <xs:documentation>Внешняя система</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Agent" type="eat:tSupplierRefType" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute ref="eat:Version" use="required"/>
+      <xs:attribute ref="eat:RequestUID" use="required"/>
+    </xs:complexType>
+    <xs:unique name="uniqueReferenceOfferChangeCode">
+      <xs:selector xpath="OfferChanges"/>
+      <xs:field xpath="eat:offerCode"/>
+    </xs:unique>
+  </xs:element>
+	<!--Элементы перечня закупочных сессий-->
+	<xs:element name="requestOrderList">
+		<xs:annotation>
+			<xs:documentation>Запрос списка действующих объявлений закупочных сессий</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="extSystem" type="eat:tExtSystemNumber">
+					<xs:annotation>
+						<xs:documentation>Внешняя система</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute ref="eat:Version" use="required"/>
+			<xs:attribute ref="eat:RequestUID" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<!--Элементы подробной информации о закупочной сессии-->
+	<xs:element name="requestOrderNotification">
+		<xs:annotation>
+			<xs:documentation>Запрос данных закупочной сессии</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="eat:requestOrderType">
+					<xs:sequence>
+						<xs:element name="extSystem" type="eat:tExtSystemNumber">
+							<xs:annotation>
+								<xs:documentation>Внешняя система</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute ref="eat:Version" use="required"/>
+					<xs:attribute ref="eat:RequestUID" use="required"/>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<!--Элемент ценового предложения закупочной сессии-->
+	<xs:element name="requestOrderProposal">
+		<xs:annotation>
+			<xs:documentation>Ценовое предложение по закупочной сессии</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="referenceOrderInfo" type="eat:ReferenceOrderInfoType">
+					<xs:annotation>
+						<xs:documentation>Данные закупочной сессии</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="OrderProposalInfo" type="eat:OrderProposalType">
+					<xs:annotation>
+						<xs:documentation>Ценовое предложение</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="extSystem" type="eat:tExtSystemNumber">
+					<xs:annotation>
+						<xs:documentation>Внешняя система</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Agent" type="eat:tSupplierRefType" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute ref="eat:Version" use="required"/>
+			<xs:attribute ref="eat:RequestUID" use="required"/>
+		</xs:complexType>
+		<xs:key name="keySequenceNumber">
+			<xs:selector xpath="referenceOrderInfo/eat:Product"/>
+			<xs:field xpath="eat:sequenceNumber"/>
+		</xs:key>
+		<xs:keyref name="keyrefSequenceNumber" refer="keySequenceNumber">
+			<xs:selector xpath="OrderProposalInfo/eat:productRef"/>
+			<xs:field xpath="eat:refSequenceNumber"/>
+		</xs:keyref>
+	</xs:element>
+	<!--Элементы протокола закупочной сессии-->
+	<xs:element name="requestOrderProtocol">
+		<xs:annotation>
+			<xs:documentation>Запрос итогового протокола по закупочной сессии</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="eat:requestOrderType">
+					<xs:sequence>
+						<xs:element name="extSystem" type="eat:tExtSystemNumber">
+							<xs:annotation>
+								<xs:documentation>Внешняя система</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute ref="eat:Version" use="required"/>
+					<xs:attribute ref="eat:RequestUID" use="required"/>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

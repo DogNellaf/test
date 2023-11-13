@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<n1:requestProcessingResult xmlns:eat="http://agregatoreat.ru/eat/" xmlns:n1="http://agregatoreat.ru/eat/object-types/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" eat:Version="2.0.0" eat:RequestUID="REQUEST_NUMBER_PARAM">
+	<extSystem>SYSTEM_NUMBER_PARAM</extSystem>
+</n1:requestProcessingResult>

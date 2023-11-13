@@ -1,0 +1,5 @@
+<eat:productRef>
+	<eat:refSequenceNumber>SEQUENCE_NUMBER_PARAM</eat:refSequenceNumber>
+	<eat:unitPrice>PRICE_PARAM</eat:unitPrice>
+	<eat:nds>NDS_PARAM</eat:nds>
+</eat:productRef>
