@@ -130,7 +130,7 @@ class EAT():
     async def start(self):
         print("Начинаю поиск закупок...")
         while True:
-            async with ClientSession() as client:
+            async with ClientSession(trust_env = True) as client:
                 try:
                     async with client.post(self.list_url, 
                                            headers=self.json_headers, 
@@ -189,7 +189,7 @@ class EAT():
         print(f"[{datetime.now()}] {message}")
 
     async def get_info(self, number: int) -> str:
-        async with ClientSession() as client:
+        async with ClientSession(trust_env = True) as client:
             headers = self.xml_headers
             info_body, request_uid = await self.load_data_from_file(self.info_body)
             info_body = info_body.replace('ORDER_NUMBER_PARAM', str(number))
@@ -204,7 +204,7 @@ class EAT():
 
     async def get_result(self, uid: int) -> str:
         await sleep(0.5)
-        async with ClientSession() as client:
+        async with ClientSession(trust_env = True) as client:
             is_processing = True
             while is_processing:
                 result_body, _ = await self.load_data_from_file(self.result_body, uid)
@@ -322,7 +322,7 @@ class EAT():
         if self.is_debug:
             self.log(f"Полученное тело запроса на добавление предложения: {body}\n")
 
-        async with ClientSession() as client:
+        async with ClientSession(trust_env = True) as client:
             async with client.post(self.add_proposal_url, 
                                    headers=headers, 
                                    data=body) as response:
